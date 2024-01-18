@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anti-Scam Web</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <nav>
+        <div id="police-name">Cyber Crime Department of India</div>
+        <div>
+            <!-- Icons or buttons on the right side -->
+            <a href="1_home_page.html">Home</a>
+            <a href="2_scan_page.html">Spyware</a>
+            <a href="3_setting.html">Settings</a>
+            <a href="login.html">User</a>
+        </div>
+    </nav>
+
+    <header>
+        &ensp;
+        <h1>Anti-Spyware</h1>
+        <p>Protecting You from Online Scams</p>
+    </header>
+
+    <main>
+    <div id="scan-container">
+        <label for="url-input">Enter Website URL:</label>
+        <input type="text" id="url-input" placeholder="https://example.com">
+
+        <label for="file-input">Upload Advertisement:</label>
+        <input type="file" id="file-input">
+
+        <label for="care-number-input">Enter Customer Care Number:</label>
+        <input type="text" id="care-number-input" placeholder="e.g., 1-800-123-4567">
+
+        <button onclick="performScan()">Scan</button>
+    </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Anti-Spyware. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function performScan() {
+            var url = document.getElementById("url-input").value;
+            var fileInput = document.getElementById("file-input").files[0];
+            var careNumber = document.getElementById("care-number-input").value;
+
+            // Simulate scanning process
+            alert("Scanning initiated...");
+
+            // Simulate asynchronous scanning process (e.g., using setTimeout)
+            setTimeout(function () {
+                // Simulate scan results
+                var results = "Scan Results:\n" +
+                    "URL: " + url + "\n" +
+                    "Advertisement File Name: " + (fileInput ? fileInput.name : "Not uploaded") + "\n" +
+                    "Customer Care Number: " + careNumber + "\n\n";
+
+                // Check for issues (fraud detection logic)
+                var fraudScore = calculateFraudScore(url, fileInput, careNumber);
+
+                // Display results to the user based on fraud score
+                if (fraudScore > 0) {
+                    results += "Issues Found: This entity is potentially fraudulent (Fraud Score: " + fraudScore + ").";
+                } else {
+                    results += "Scanning completed. No issues found.";
+                }
+
+                // Display results to the user (you might want to implement a more user-friendly display)
+                alert(results);
+            }, 2000); // Simulating a 2-second scanning process (adjust as needed)
+
+            // Function to calculate a fraud score based on multiple checks
+            function calculateFraudScore(url, fileInput, careNumber) {
+                var fraudScore = 0;
+
+                // Check HTTP status of the URL
+                var httpStatus = checkHttpStatus(url);
+                if (httpStatus !== 200) {
+                    fraudScore += 2; // Add to the fraud score for non-200 HTTP status
+                }
+
+                // Perform content analysis (replace with your specific logic)
+                var contentAnalysisScore = performContentAnalysis(url, fileInput, careNumber);
+                fraudScore += contentAnalysisScore;
+
+                // Additional checks and scoring can be added here
+
+                return fraudScore;
+            }
+
+            // Function to check HTTP status of the URL
+            function checkHttpStatus(url) {
+                // Simulate HTTP status check (replace with actual logic)
+                return 200; // Assume OK for simulation purposes
+            }
+
+            // Function to perform content analysis
+            function performContentAnalysis(url, fileInput, careNumber) {
+                // Simulate content analysis (replace with actual logic)
+                // For simplicity, we'll just check if the URL contains the word "fake"
+                var lowercaseUrl = url.toLowerCase();
+                if (lowercaseUrl.includes("fake")) {
+                    return 3; // Add to the fraud score for the presence of the word "fake"
+                }
+
+                // Similar analysis can be performed on file content and careNumber
+
+                return 0; // No issues found in content analysis
+            }
+        }
+   
+
+    
+        // Simulated results (replace this with actual data from the scanning process)
+        var scanResults = {
+            url: "https://example.com",
+            advertisementFileName: "example_ad.png",
+            careNumber: "1-800-123-4567",
+            issuesFound: true,
+            fraudScore: 5
+        };
+
+        // Display results dynamically
+        displayResults(scanResults);
+
+        // Function to display scan results dynamically
+        function displayResults(results) {
+            var resultDetails = document.getElementById("result-details");
+            var resultText = "URL: " + results.url + "<br>" +
+                "Advertisement File Name: " + results.advertisementFileName + "<br>" +
+                "Customer Care Number: " + results.careNumber + "<br><br>";
+
+            if (results.issuesFound) {
+                resultText += "Issues Found: This entity is potentially fraudulent (Fraud Score: " + results.fraudScore + ").";
+            } else {
+                resultText += "Scanning completed. No issues found.";
+            }
+
+            resultDetails.innerHTML = resultText;
+        }
+        
+    </script>
+    
+</body>
+
+</html>

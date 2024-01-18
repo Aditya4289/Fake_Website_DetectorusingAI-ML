@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anti-Scam App - Settings</title>
+    <style>
+        /* Your styles here */
+    </style>
+</head>
+
+<body>
+    <div id="settings-container">
+        <h2>App Settings</h2>
+        <label>
+            <input type="checkbox" id="real-time-alerts-checkbox" checked> Enable Real-time Alerts
+        </label>
+        <br>
+        <label for="scanning-sensitivity-range">Scanning Sensitivity:</label>
+        <input type="range" id="scanning-sensitivity-range" min="1" max="10" value="5">
+        <p id="scanning-sensitivity-value">Scanning Sensitivity: 5</p>
+
+        <br><br>
+        
+        <!-- Link to go back to the home page -->
+        <a href="1_home_page.html">Go to Home Page</a>
+    </div>
+
+    <script>
+        // Function to handle changes in scanning sensitivity
+        function handleSensitivityChange() {
+            var sensitivityValue = document.getElementById("scanning-sensitivity-range").value;
+            document.getElementById("scanning-sensitivity-value").innerText = "Scanning Sensitivity: " + sensitivityValue;
+        }
+
+        // Attach event listener to the sensitivity range input
+        document.getElementById("scanning-sensitivity-range").addEventListener("input", handleSensitivityChange);
+    </script>
+</body>
+
+</html>

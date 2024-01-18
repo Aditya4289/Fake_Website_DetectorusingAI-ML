@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Login Form</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+
+<body>
+    <h2>Welcome to Spyware</h2>
+    <h2>Login/Signup</h2><br>
+    <div class="login">
+        <form id="login" method="get" action="login.php">
+            <label><b>User Name </b></label>
+            <input type="text" name="Uname" id="Uname" placeholder="Username">
+            <br><br>
+            <label><b>Password </b></label>
+            <input type="Password" name="Pass" id="Pass" placeholder="Password">
+            <br><br>
+            <!-- Added "Log In Here" button with link -->
+            <input type="button" name="log" id="log" value="Log In Here" onclick="location.href='1_home_page.html'">
+            <br><br>
+            <input type="checkbox" id="check">
+            <span>Remember me</span>
+            <br><br>
+            Forgot <a href="#">Password</a>
+            
+            <!-- Added "Sign Up Here" button -->
+            <br><br>
+            <input type="button" name="signup" id="signup" value="Sign Up Here" onclick="location.href='signup.html'">
+        </form>
+    </div>
+</body>
+
+</html>

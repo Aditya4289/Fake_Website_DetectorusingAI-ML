@@ -1,0 +1,73 @@
+/* style1.css */
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('background.jpg'); /* Adjust the path based on your folder structure */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Adjust to column layout */
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+#app-container {
+    text-align: center;
+}
+
+#app-purpose {
+    margin-top: 20px;
+    font-size: 18px;
+    color: #ffffff;
+}
+
+/* Navigation Bar Styles */
+nav {
+    background-color: #333;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+}
+
+#police-name {
+    color: white;
+    font-size: 16px;
+    margin-left: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 16px;
+    position: relative;
+}
+
+nav a:hover {
+    background-color: rgba(255, 0, 0, 0.893); /* Adjust the background color and transparency */
+    border-radius: 5px; /* Optional: Add rounded corners */
+}
+
+/* Button Style for Scan Spyware */
+#scan-button {
+    background-color: #3498db;
+    color: white;
+    padding: 10px 20px;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#scan-button:hover {
+    background-color: #2980b9; /* Change color on hover */
+}
