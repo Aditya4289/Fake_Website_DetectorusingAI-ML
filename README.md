@@ -1,3 +1,10 @@
+##we have created all the platforms for antiscam website detection, fake advertisement, and fake customer care numbers:
+1. Web Platform
+2. Mobile Application
+3. Extension for Browser
+
+we have separate code for frontend and backend
+
 login credentials
 user name: 123
 password: 123456
