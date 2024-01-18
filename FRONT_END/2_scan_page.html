@@ -27,18 +27,18 @@
     </header>
 
     <main>
-    <div id="scan-container">
-        <label for="url-input">Enter Website URL:</label>
-        <input type="text" id="url-input" placeholder="https://example.com">
+        <div id="scan-container">
+            <label for="url-input">Enter Website URL:</label>
+            <input type="text" id="url-input" placeholder="https://example.com">
 
-        <label for="file-input">Upload Advertisement:</label>
-        <input type="file" id="file-input">
+            <label for="file-input">Upload Advertisement:</label>
+            <input type="file" id="file-input">
 
-        <label for="care-number-input">Enter Customer Care Number:</label>
-        <input type="text" id="care-number-input" placeholder="e.g., 1-800-123-4567">
+            <label for="care-number-input">Enter Customer Care Number:</label>
+            <input type="text" id="care-number-input" placeholder="e.g., 1-800-123-4567">
 
-        <button onclick="performScan()">Scan</button>
-    </div>
+            <button onclick="performScan()">Scan</button>
+        </div>
     </main>
 
     <footer>
@@ -51,6 +51,12 @@
             var fileInput = document.getElementById("file-input").files[0];
             var careNumber = document.getElementById("care-number-input").value;
 
+            // Check if at least one of the fields is filled
+            if (!url && !fileInput && !careNumber) {
+                alert("Please provide at least the URL, Advertisement, or Customer Care Number.");
+                return;
+            }
+
             // Simulate scanning process
             alert("Scanning initiated...");
 
@@ -62,7 +68,7 @@
                     "Advertisement File Name: " + (fileInput ? fileInput.name : "Not uploaded") + "\n" +
                     "Customer Care Number: " + careNumber + "\n\n";
 
-                // Check for issues (fraud detection logic)
+                // Check for issues (enhanced fraud detection logic)
                 var fraudScore = calculateFraudScore(url, fileInput, careNumber);
 
                 // Display results to the user based on fraud score
@@ -86,7 +92,7 @@
                     fraudScore += 2; // Add to the fraud score for non-200 HTTP status
                 }
 
-                // Perform content analysis (replace with your specific logic)
+                // Perform content analysis (enhanced logic)
                 var contentAnalysisScore = performContentAnalysis(url, fileInput, careNumber);
                 fraudScore += contentAnalysisScore;
 
@@ -101,13 +107,31 @@
                 return 200; // Assume OK for simulation purposes
             }
 
-            // Function to perform content analysis
+            // Function to perform content analysis (enhanced logic)
             function performContentAnalysis(url, fileInput, careNumber) {
                 // Simulate content analysis (replace with actual logic)
-                // For simplicity, we'll just check if the URL contains the word "fake"
                 var lowercaseUrl = url.toLowerCase();
-                if (lowercaseUrl.includes("fake")) {
-                    return 3; // Add to the fraud score for the presence of the word "fake"
+
+                // Check for specific patterns or keywords associated with fake websites
+                var fakeWebsiteKeywords = [
+                    "pilosaleltd.com",
+                    "piloltd.com",
+                    "amazonstorepro.com",
+                    "anhbhau.shop",
+                    "shoepublic.com",
+                    "outdoorbest.store",
+                    "tiffanycoshop.com",
+                    "omitages.com",
+                    "moziep.com",
+                    "morrity.com",
+                    "myfaceboxer.com",
+                    "halaboommall.com"
+                ];
+
+                for (var i = 0; i < fakeWebsiteKeywords.length; i++) {
+                    if (lowercaseUrl.includes(fakeWebsiteKeywords[i])) {
+                        return 3; // Add to the fraud score for the presence of a fake website keyword
+                    }
                 }
 
                 // Similar analysis can be performed on file content and careNumber
@@ -115,39 +139,8 @@
                 return 0; // No issues found in content analysis
             }
         }
-   
-
-    
-        // Simulated results (replace this with actual data from the scanning process)
-        var scanResults = {
-            url: "https://example.com",
-            advertisementFileName: "example_ad.png",
-            careNumber: "1-800-123-4567",
-            issuesFound: true,
-            fraudScore: 5
-        };
-
-        // Display results dynamically
-        displayResults(scanResults);
-
-        // Function to display scan results dynamically
-        function displayResults(results) {
-            var resultDetails = document.getElementById("result-details");
-            var resultText = "URL: " + results.url + "<br>" +
-                "Advertisement File Name: " + results.advertisementFileName + "<br>" +
-                "Customer Care Number: " + results.careNumber + "<br><br>";
-
-            if (results.issuesFound) {
-                resultText += "Issues Found: This entity is potentially fraudulent (Fraud Score: " + results.fraudScore + ").";
-            } else {
-                resultText += "Scanning completed. No issues found.";
-            }
-
-            resultDetails.innerHTML = resultText;
-        }
-        
     </script>
-    
+
 </body>
 
 </html>
