@@ -45,6 +45,9 @@ All these models are trained on the dataset and evaluation of the model is done 
 ## End Results
 From the obtained results of the above models, XGBoost Classifier has highest model performance of 86.4%. So the model is saved to the file.
 
-### Next St
+### Next Step
 
 This project can be further extended to creation of browser extention or developed a GUI which takes the URL and predicts it's nature i.e., legitimate of phishing. *As of now, I am working towards the creation of browser extention for this project. And may even try the GUI option also.* The further developments will be updated at the earliest. 
+
+## future Adaption 
+we are creating a Extension which we will apply on our browser which will help us to safe guard from going on fake website, advertisment , and customer care no.
